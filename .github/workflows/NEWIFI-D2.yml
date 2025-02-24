@@ -23,7 +23,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-20.04
     if: github.event.repository.owner.id == github.event.sender.id
 
     steps:
@@ -51,14 +51,14 @@ jobs:
           mv ../openwrt-packages/luci-app-wolplus openwrt-packages/luci-app-wolplus
           cd lean
           rm -rf luci-theme-argon  
-          git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
+          #git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
       - name: Update feeds
         run: |
           ./scripts/feeds update -a
           ./scripts/feeds install -a
       - name: Costom configure file
         run: |
-          sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
+          #sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
           # sed -i 's/country=US/country=CN/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
           rm -f ./.config*
           touch ./.config

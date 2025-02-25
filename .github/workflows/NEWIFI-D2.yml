@@ -80,7 +80,7 @@ jobs:
 
 
           # APP
-          CONFIG_PACKAGE_luci-app-aria2=y
+          CONFIG_PACKAGE_luci-app-aria2=n
           CONFIG_PACKAGE_luci-app-ddns=y
           CONFIG_PACKAGE_luci-app-frpc=y
           CONFIG_PACKAGE_luci-app-hd-idle=y
@@ -96,7 +96,7 @@ jobs:
           CONFIG_PACKAGE_luci-app-upnp=y
           CONFIG_PACKAGE_luci-app-vlmcsd=y
           CONFIG_PACKAGE_luci-app-wrtbwmon=y
-          CONFIG_PACKAGE_luci-app-xlnetacc=y
+          CONFIG_PACKAGE_luci-app-xlnetacc=n
           CONFIG_PACKAGE_luci-app-zerotier=y
 
           # Third party packages
@@ -121,17 +121,17 @@ jobs:
           cp .config .config.cs
 
           cat >> .config <<EOF
-          CONFIG_PACKAGE_luci-app-easymesh=y
+          CONFIG_PACKAGE_luci-app-easymesh=n
           CONFIG_PACKAGE_luci-app-guest-wifi=y
           # WIFI driver
-          CONFIG_PACKAGE_kmod-mt7603=y
-          CONFIG_PACKAGE_kmod-mt76x2=y
+          CONFIG_PACKAGE_kmod-mt7603=n
+          CONFIG_PACKAGE_kmod-mt76x2=n
           CONFIG_PACKAGE_hostapd-common=y
           CONFIG_PACKAGE_wpad-openssl=y
-          CONFIG_PACKAGE_kmod-mt7603e=n
-          CONFIG_PACKAGE_kmod-mt76x2e=n
-          CONFIG_PACKAGE_luci-app-mtwifi=n
-          CONFIG_PACKAGE_mt_wifi=n
+          CONFIG_PACKAGE_kmod-mt7603e=y
+          CONFIG_PACKAGE_kmod-mt76x2e=y
+          CONFIG_PACKAGE_luci-app-mtwifi=y
+          CONFIG_PACKAGE_mt_wifi=y
           EOF
           sed -i 's/^[ \t]*//g' ./.config
 

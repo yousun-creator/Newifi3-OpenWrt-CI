@@ -16,8 +16,8 @@ on:
   push:
     branches:
       - master
-  schedule:
-    - cron: 0 */12 * * *
+ # schedule:
+ #   - cron: 0 */12 * * *
   watch:
     types: started
 
@@ -42,7 +42,7 @@ jobs:
           mv ./lede/* ./
       - name: Install addons
         run: |
-          echo "src-git helloworld https://github.com/fw876/helloworld" >> ./feeds.conf.default 
+          echo "src-git helloworld https://github.com/fw876/helloworld.git" >> ./feeds.conf.default 
           git clone https://github.com/kiddin9/openwrt-packages.git
           cd package
           mkdir openwrt-packages
@@ -51,14 +51,14 @@ jobs:
           mv ../openwrt-packages/luci-app-wolplus openwrt-packages/luci-app-wolplus
           cd lean
           rm -rf luci-theme-argon  
-          #git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
+          git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
       - name: Update feeds
         run: |
           ./scripts/feeds update -a
           ./scripts/feeds install -a
       - name: Costom configure file
         run: |
-          #sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
+          sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
           # sed -i 's/country=US/country=CN/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
           rm -f ./.config*
           touch ./.config

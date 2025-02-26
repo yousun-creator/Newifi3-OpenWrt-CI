@@ -23,7 +23,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     if: github.event.repository.owner.id == github.event.sender.id
 
     steps:
@@ -100,8 +100,8 @@ jobs:
           CONFIG_PACKAGE_luci-app-zerotier=y
 
           # Third party packages
-          CONFIG_PACKAGE_luci-app-aliddns=y
-          CONFIG_PACKAGE_luci-app-eqos=y
+          #CONFIG_PACKAGE_luci-app-aliddns=n
+          #CONFIG_PACKAGE_luci-app-eqos=n
           CONFIG_PACKAGE_luci-app-ssr-plus=y
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Kcptun=y
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_IPT2Socks=y
@@ -112,8 +112,8 @@ jobs:
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan=y
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray_Plugin=y
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Xray=y
-          CONFIG_PACKAGE_luci-app-wol=n
-          CONFIG_PACKAGE_luci-app-wolplus=y
+          CONFIG_PACKAGE_luci-app-wol=y
+          CONFIG_PACKAGE_luci-app-wolplus=n
 
           EOF
 

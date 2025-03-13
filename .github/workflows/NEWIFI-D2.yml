@@ -149,7 +149,7 @@ jobs:
         uses: actions/upload-artifact@master
         with:
           name: OpenWrt-newifi-d2
-          path: bin/targets/ramips/mt7621/openwrt-ramips-mt7621-d-team_newifi-d2-squashfs-sysupgrade(open).bin
+          path: bin/targets/ramips/mt7621/openwrt-ramips-mt7621-d-team_newifi-d2-squashfs-sysupgrade.bin
       - name: Compile firmware
         run: |
           rm -f ./.config
